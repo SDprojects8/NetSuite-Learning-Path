@@ -1,8 +1,8 @@
-"""Custom exceptions for Project.Name."""
+"""Custom exceptions for NetSuite-Learning-Path."""
 
 
 class LCMError(Exception):
-    """Base exception for Project.Name."""
+    """Base exception for NetSuite-Learning-Path."""
 
     def __init__(self, message: str, code: str = None):
         super().__init__(message)

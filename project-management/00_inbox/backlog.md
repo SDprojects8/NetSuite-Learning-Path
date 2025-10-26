@@ -1,69 +1,70 @@
-# Backlog
+# Project Backlog
 
 ## Purpose
-Maintain a prioritized list of features, enhancements, and work items that are candidates for future development cycles.
+This document contains a prioritized list of high-level features, learning modules, and epics for the NetSuite Learning Path project. Items from this backlog will be moved into the `04_planning` phase for detailed breakdown and scheduling.
 
-## Backlog Management Process
-1. **Intake**: Capture requests from various sources
-2. **Refinement**: Add detail and acceptance criteria
-3. **Estimation**: Size the effort required
-4. **Prioritization**: Rank by business value and urgency
-5. **Planning**: Move to active sprint/iteration
+---
 
-## Product Backlog
+## Epics (High-Level Learning Phases)
 
-| Priority | ID | Title | Description | Story Points | Business Value | Status | Requester |
-|----------|----|-------|-------------|--------------|----------------|--------|-----------|
-| | | | | | | | |
+This backlog is organized by learning epics, which correspond to the major phases of the project roadmap.
 
-## Epic Breakdown
+### Epic 1: Foundation - The Functional & Admin Layers
+- **Description:** Gain a solid understanding of NetSuite's core business processes and its declarative (no-code/low-code) customization tools. This forms the foundation for all subsequent development work.
+- **Priority:** Critical
+- **Status:** To Do
+- **Key Work Items:**
+    - [ ] Learn Order-to-Cash process flow.
+    - [ ] Learn Procure-to-Pay process flow.
+    - [ ] Master basic NetSuite navigation and UI.
+    - [ ] Complete training on SuiteBuilder (custom fields, forms, records).
+    - [ ] Complete training on SuiteFlow (workflow automation).
+    - [ ] Achieve `SuiteFoundation` Certification.
 
-### Epic: [Epic Name]
-**Description**: [High-level description]  
-**Business Objective**: [Why this epic matters]  
-**Success Criteria**: [How we measure success]
+### Epic 2: Core Development - Mastering SuiteScript
+- **Description:** Develop deep, hands-on expertise in SuiteScript 2.x, the primary language for programmatic customization in NetSuite.
+- **Priority:** Critical
+- **Status:** To Do
+- **Key Work Items:**
+    - [ ] Solidify Modern JavaScript (ES6+) concepts.
+    - [ ] Learn and implement User Event scripts.
+    - [ ] Learn and implement Client scripts.
+    - [ ] Learn and implement Scheduled scripts.
+    - [ ] Learn and implement Map/Reduce scripts.
+    - [ ] Master core API modules (`N/record`, `N/search`, `N/https`).
 
-**Stories**:
-- [ ] [Story 1]
-- [ ] [Story 2] 
-- [ ] [Story 3]
+### Epic 3: Integration & Data Management
+- **Description:** Focus on connecting NetSuite with external systems and managing data flow, a key responsibility for a solutions architect.
+- **Priority:** High
+- **Status:** To Do
+- **Key Work Items:**
+    - [ ] Learn SuiteTalk REST API.
+    - [ ] Learn SuiteTalk SOAP API.
+    - [ ] Master Token-Based Authentication (TBA).
+    - [ ] Practice API calls with Postman.
+    - [ ] Execute data migration tasks using CSV imports.
+    - [ ] Develop a script for API-based data migration.
 
-## Prioritization Framework
+### Epic 4: DevOps & Platform Governance
+- **Description:** Apply modern DevOps principles to the NetSuite platform using the SuiteCloud Development Framework (SDF).
+- **Priority:** High
+- **Status:** To Do
+- **Key Work Items:**
+    - [ ] Set up and configure the SDF CLI.
+    - [ ] Manage a NetSuite project with Git.
+    - [ ] Create and deploy customizations as code (XML).
+    - [ ] Build a basic CI/CD pipeline for automated deployment.
 
-### MoSCoW Method
-- **Must Have**: Critical for current release
-- **Should Have**: Important but not critical
-- **Could Have**: Nice to have if time permits
-- **Won't Have**: Not for this release
-
-### Value vs Effort Matrix
-- **High Value, Low Effort**: Quick wins (Priority 1)
-- **High Value, High Effort**: Major projects (Priority 2)
-- **Low Value, Low Effort**: Fill-in tasks (Priority 3)
-- **Low Value, High Effort**: Avoid/postpone (Priority 4)
-
-## Story Template
-
-### Story: [Title]
-**As a** [user type]  
-**I want** [goal]  
-**So that** [benefit]
-
-**Acceptance Criteria**:
-- [ ] [Criterion 1]
-- [ ] [Criterion 2]
-- [ ] [Criterion 3]
-
-**Definition of Done**:
-- [ ] Code complete
-- [ ] Unit tests pass
-- [ ] Code reviewed
-- [ ] Documentation updated
-- [ ] Deployed to staging
-
-## Refinement Notes
-*Capture details from backlog refinement sessions*
-
-| Date | Item | Changes Made | Next Steps |
-|------|------|--------------|------------|
-| | | | |
+### Epic 5: Advanced Architecture & Portfolio Building
+- **Description:** Synthesize all learned skills to design comprehensive solutions and build a portfolio of projects to demonstrate expertise.
+- **Priority:** Medium
+- **Status:** To Do
+- **Key Work Items:**
+    - [ ] Study NetSuite performance tuning best practices.
+    - [ ] Define a strategy for platform governance and code reviews.
+    - [ ] Build Portfolio Project 1: Multi-System Integration Hub.
+    - [ ] Build Portfolio Project 2: Automated Data Migration Framework.
+    - [ ] Build Portfolio Project 3: NetSuite DevOps Toolkit.
+    - [ ] Build Portfolio Project 4: Custom Workflow Engine.
+    - [ ] Build Portfolio Project 5: Real-Time Analytics Engine.
+    - [ ] Achieve `SuiteCloud Developer II` Certification.

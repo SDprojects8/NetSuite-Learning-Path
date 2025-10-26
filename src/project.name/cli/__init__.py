@@ -1,4 +1,4 @@
-"""CLI modules for Project.Name."""
+"""CLI modules for NetSuite-Learning-Path."""
 
 from .main import main
 

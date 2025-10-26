@@ -1,4 +1,4 @@
-"""Configuration management for Project.Name."""
+"""Configuration management for NetSuite-Learning-Path."""
 
 from .settings import settings
 

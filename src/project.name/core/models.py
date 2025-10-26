@@ -1,4 +1,4 @@
-"""Core data models for Project.Name."""
+"""Core data models for NetSuite-Learning-Path."""
 
 from datetime import datetime
 from enum import Enum

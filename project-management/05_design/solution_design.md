@@ -1,191 +1,133 @@
-# Solution Design
+# Solution Design Document
+# Portfolio Project: [Project Name]
+
+---
 
 ## Document Information
-**Project**: [Project Name]  
-**Version**: [Version]  
-**Date**: [Date]  
-**Designer**: [Name]  
-**Status**: [Draft/Review/Approved]
+**Version:** 1.0  
+**Date:** [YYYY-MM-DD]  
+**Author:** [Your Name]  
+**Status:** [Draft / In Review / Approved]
 
-## Solution Overview
-[High-level description of the solution design and approach]
+---
 
-## Business Requirements Mapping
-| Requirement ID | Business Requirement | Design Component | Implementation Approach |
-|----------------|---------------------|------------------|------------------------|
-| [BR-001] | [Requirement] | [Component] | [Approach] |
-| [BR-002] | [Requirement] | [Component] | [Approach] |
+## 1. Introduction
 
-## Solution Components
+### 1.1. Purpose
+This document provides a comprehensive design for the "[Project Name]" project. It translates the functional and non-functional requirements from the specification documents into a concrete solution blueprint. This design serves as the primary guide for the implementation phase, ensuring that the developed system is scalable, maintainable, and aligned with the project's objectives.
 
-### Frontend Components
-| Component | Purpose | Technology | Key Features |
-|-----------|---------|------------|--------------|
-| [Component 1] | [Purpose] | [Tech] | [Features] |
-| [Component 2] | [Purpose] | [Tech] | [Features] |
+### 1.2. Scope
+The scope of this document covers the high-level architecture, detailed component design, data flow, key design decisions, and operational considerations for the project.
 
-### Backend Components
-| Component | Purpose | Technology | Key Features |
-|-----------|---------|------------|--------------|
-| [Component 1] | [Purpose] | [Tech] | [Features] |
-| [Component 2] | [Purpose] | [Tech] | [Features] |
+### 1.3. References
+| ID | Document/Link | Description |
+|----|---|---|
+| 1  | `03_specifications/FSD.md` | The Functional Specification Document, detailing what the system must do. |
+| 2  | `03_specifications/TSD.md` | The Technical Specification Document, detailing the low-level technical implementation plan. |
+| 3  | `03_specifications/NFR.md` | The Non-Functional Requirements that this design must satisfy. |
+| 4  | `05_design/architecture.md` | The high-level system architecture diagram. |
 
-### Database Components
-| Component | Type | Purpose | Schema Overview |
-|-----------|------|---------|----------------|
-| [DB 1] | [Type] | [Purpose] | [Schema] |
-| [DB 2] | [Type] | [Purpose] | [Schema] |
+---
 
-## Design Patterns
+## 2. High-Level Solution Design
 
-### Architectural Patterns
-- **Pattern 1**: [Name and description]
-- **Pattern 2**: [Name and description]
+### 2.1. Conceptual Overview
+The solution is a [describe the type of application, e.g., "scheduled, stateless integration service"] designed to [state the primary function, e.g., "synchronize customer data between Salesforce and NetSuite"]. The system will operate by [describe the core process, e.g., "periodically polling Salesforce for changes, transforming the data into the NetSuite format, and loading it into NetSuite via its REST API"]. The entire process is designed to be automated, resilient, and configurable.
 
-### Design Patterns Used
-| Pattern | Purpose | Implementation | Benefits |
-|---------|---------|----------------|----------|
-| [Pattern 1] | [Purpose] | [How used] | [Benefits] |
-| [Pattern 2] | [Purpose] | [How used] | [Benefits] |
+### 2.2. Architectural Style
+The chosen architectural style is **modular monolithic**. While the application runs as a single process, it is internally structured into distinct, loosely coupled components (services) with well-defined responsibilities. This approach provides a good balance of simplicity in deployment while promoting code organization and testability, which is ideal for a project of this scale.
 
-## User Experience Design
+*(Reference the diagram in `architecture.md` for a visual representation).*
 
-### User Journey Map
-```
-[User journey flow]
-Start → [Step 1] → [Step 2] → [Step 3] → End
-```
+---
 
-### Key User Interfaces
-| Interface | User Type | Purpose | Key Interactions |
-|-----------|-----------|---------|-----------------|
-| [UI 1] | [User] | [Purpose] | [Interactions] |
-| [UI 2] | [User] | [Purpose] | [Interactions] |
+## 3. Component Breakdown
+The solution is broken down into the following logical components:
 
-## API Design
+### 3.1. Component: Configuration Service
+*   **Responsibility:** To load and provide access to all application settings, including API credentials, endpoints, and processing rules.
+*   **Technology:** Python `python-dotenv` library.
+*   **Interface:** A `Config` class that exposes settings as properties.
+*   **Key Logic:** Loads variables from a `.env` file and the environment, ensuring that secrets are not hardcoded.
 
-### REST API Endpoints
-| Endpoint | Method | Purpose | Request/Response |
-|----------|--------|---------|------------------|
-| `/api/resource` | GET | [Purpose] | [Format] |
-| `/api/resource` | POST | [Purpose] | [Format] |
+### 3.2. Component: Orchestration Service (`main.py`)
+*   **Responsibility:** To control the overall execution flow of the application. It acts as the "main" routine.
+*   **Technology:** Python.
+*   **Interface:** The main entry point of the application.
+*   **Key Logic:** Initializes all other services and calls them in the correct sequence: `State Manager` -> `Source Connector` -> `Transformation Service` -> `Destination Connector` -> `State Manager`.
 
-### API Security
-- **Authentication**: [Method]
-- **Rate Limiting**: [Approach]
-- **Input Validation**: [Strategy]
+### 3.3. Component: Source Connector (e.g., `SalesforcePoller`)
+*   **Responsibility:** To connect to the source system (Salesforce) and extract the required data.
+*   **Technology:** Python `requests`, `requests-oauthlib`.
+*   **Interface:** A `get_new_records(since_timestamp)` method that returns a list of records.
+*   **Key Logic:** Handles authentication with the source API, constructs the appropriate query, and fetches data.
 
-## Data Design
+### 3.4. Component: Transformation Service (`transformer.py`)
+*   **Responsibility:** To convert the data from the source system's format to the destination system's format.
+*   **Technology:** Python.
+*   **Interface:** A `transform(source_record)` method that returns a transformed record.
+*   **Key Logic:** Implements the specific field mappings and business logic defined in `03_specifications/data_model.md`.
 
-### Data Model Overview
-[Description of the data model and relationships]
+### 3.5. Component: Destination Connector (e.g., `NetSuiteLoader`)
+*   **Responsibility:** To connect to the destination system (NetSuite) and load the transformed data.
+*   **Technology:** Python `requests`.
+*   **Interface:** A `load_record(transformed_record)` method.
+*   **Key Logic:** Handles authentication (TBA), formats the final API request, and posts the data to the destination API.
 
-### Key Entities
-| Entity | Attributes | Relationships | Business Rules |
-|--------|------------|---------------|----------------|
-| [Entity 1] | [Attributes] | [Relationships] | [Rules] |
-| [Entity 2] | [Attributes] | [Relationships] | [Rules] |
+### 3.6. Component: State Manager
+*   **Responsibility:** To persist and retrieve the application's state between runs, specifically the timestamp of the last successful run.
+*   **Technology:** Python file I/O.
+*   **Interface:** `get_last_run_timestamp()` and `set_last_run_timestamp(timestamp)` methods.
+*   **Key Logic:** Reads from and writes to a local state file (e.g., `run_state.json`).
 
-## Integration Design
+### 3.7. Component: Logging Service
+*   **Responsibility:** To provide a centralized and configurable logging mechanism.
+*   **Technology:** Python's standard `logging` library.
+*   **Interface:** A standard logger instance available to all components.
+*   **Key Logic:** Configured via a `logging.ini` file to output to both the console and a rotating log file.
 
-### External System Integrations
-| System | Integration Pattern | Data Exchange | Error Handling |
-|--------|-------------------|---------------|----------------|
-| [System 1] | [Pattern] | [Data] | [Approach] |
-| [System 2] | [Pattern] | [Data] | [Approach] |
+---
 
-## Security Design
+## 4. Data Flow Architecture
+This section describes the end-to-end journey of data through the system.
 
-### Security Controls
-| Control | Implementation | Coverage |
-|---------|----------------|----------|
-| [Control 1] | [How implemented] | [What it covers] |
-| [Control 2] | [How implemented] | [What it covers] |
+1.  **Initiation:** The Orchestrator starts the process, triggered by a cron job.
+2.  **State Retrieval:** The Orchestrator asks the State Manager for the `last_run_timestamp`.
+3.  **Data Extraction:** The Orchestrator passes the `last_run_timestamp` to the Source Connector, which queries the source system for all records created or modified since that time.
+4.  **Data Reception:** The Source Connector returns a raw list of source records to the Orchestrator.
+5.  **Transformation Loop:** The Orchestrator iterates through each raw record and passes it to the Transformation Service.
+6.  **Data Loading:** The Transformation Service returns a transformed record, which the Orchestrator then passes to the Destination Connector. The Destination Connector loads the record into the target system.
+7.  **Error Handling:** If any step within the loop fails for a single record, the error is logged, and the process continues with the next record.
+8.  **State Update:** After the loop is complete, if the run was successful, the Orchestrator gets the current timestamp and tells the State Manager to persist it as the new `last_run_timestamp`.
 
-### Data Protection
-- **Encryption**: [At rest and in transit]
-- **Access Control**: [RBAC implementation]
-- **Audit Logging**: [What is logged]
+---
 
-## Performance Design
+## 5. Key Design Decisions
 
-### Performance Targets
-| Component | Response Time | Throughput | Availability |
-|-----------|---------------|------------|--------------|
-| [Component 1] | [Target] | [Target] | [Target] |
+| Decision Area | Decision | Rationale | Alternatives Considered |
+| :--- | :--- | :--- | :--- |
+| **State Management** | Use a local JSON file to store the last run timestamp. | Simple, no external dependencies, and sufficient for this project's needs. | - **Database:** Overkill for storing a single value.<br>- **Cloud Storage:** Adds unnecessary complexity and dependencies. |
+| **Scheduling** | Use a system-level cron job to trigger the main script. | Highly reliable, industry-standard, and decouples scheduling from the application logic itself. | - **In-app Scheduler (e.g., `apscheduler`):** Tightly couples the app to the scheduling logic, making it stateful and harder to test. |
+| **Authentication** | Implement TBA and OAuth logic directly using the `requests` library. | Provides a deeper understanding of the authentication protocols, which is a key learning objective. | - **Using a pre-built SDK:** Hides the complexity of the authentication flow, which would defeat the learning purpose. |
 
-### Optimization Strategies
-- **Caching**: [Strategy and implementation]
-- **Database Optimization**: [Indexing and query optimization]
-- **CDN**: [Content delivery strategy]
+---
 
-## Deployment Design
+## 6. Error Handling and Resilience
+*   **Record-Level Errors:** Failures to process a single record (e.g., due to a data validation error) will be logged in detail, but will not stop the entire run. The process will continue with the next record.
+*   **System-Level Errors:** Critical failures (e.g., inability to connect to an API, invalid credentials) will cause the entire run to fail immediately.
+*   **Retries:** The system will implement a simple retry mechanism with exponential backoff for transient network errors or API rate limit responses (`429` status code).
+*   **Idempotency:** The use of `externalId` ensures that if a run is repeated, it will not create duplicate records in the destination system.
 
-### Deployment Architecture
-[Description of deployment approach and environments]
+---
 
-### Configuration Management
-| Environment | Configuration Approach | Secrets Management |
-|-------------|----------------------|-------------------|
-| Development | [Approach] | [Method] |
-| Production | [Approach] | [Method] |
+## 7. Security Design
+*   **Credential Storage:** All API credentials and secrets will be stored in a `.env` file, which is excluded from version control via `.gitignore`.
+*   **Data in Transit:** All API communications will use HTTPS to ensure data is encrypted.
+*   **Log Security:** No sensitive data (credentials, tokens) will be written to the log files.
 
-## Monitoring Design
+---
 
-### Monitoring Strategy
-- **Application Metrics**: [What is monitored]
-- **Business Metrics**: [KPIs tracked]
-- **Infrastructure Metrics**: [System monitoring]
-
-### Alerting Rules
-| Alert | Condition | Severity | Response |
-|-------|-----------|----------|----------|
-| [Alert 1] | [Condition] | [Level] | [Action] |
-
-## Error Handling Design
-
-### Error Categories
-| Category | Handling Strategy | User Experience |
-|----------|------------------|----------------|
-| [Category 1] | [Strategy] | [UX approach] |
-| [Category 2] | [Strategy] | [UX approach] |
-
-### Logging Strategy
-- **Log Levels**: [DEBUG, INFO, WARN, ERROR]
-- **Log Format**: [Structured logging approach]
-- **Log Retention**: [Duration and policies]
-
-## Testing Design
-
-### Test Strategy
-- **Unit Testing**: [Approach and coverage]
-- **Integration Testing**: [Strategy]
-- **End-to-End Testing**: [Scenarios covered]
-
-### Test Data Management
-- **Test Data Strategy**: [How test data is managed]
-- **Data Privacy**: [Anonymization/masking]
-
-## Design Trade-offs
-
-### Key Decisions
-| Decision | Options Considered | Decision Rationale | Trade-offs |
-|----------|-------------------|-------------------|------------|
-| [Decision 1] | [Options] | [Rationale] | [Trade-offs] |
-| [Decision 2] | [Options] | [Rationale] | [Trade-offs] |
-
-## Design Validation
-
-### Design Review Checklist
-- [ ] Meets all functional requirements
-- [ ] Addresses non-functional requirements
-- [ ] Follows design principles
-- [ ] Security considerations addressed
-- [ ] Performance targets achievable
-- [ ] Maintainable and extensible
-
-### Prototype Results
-[Results from any prototyping or proof-of-concept work]
-
-## Future Enhancements
-[Planned future enhancements and design evolution]
+## 8. Revision History
+| Version | Date | Author | Changes |
+| :--- | :--- | :--- | :--- |
+| 1.0 | [YYYY-MM-DD] | [Your Name] | Initial draft of the solution design. |

@@ -1,4 +1,4 @@
-"""Utility modules for Project.Name."""
+"""Utility modules for NetSuite-Learning-Path."""
 
 from .logging import setup_logging
 from .helpers import generate_id, format_datetime

@@ -1,102 +1,70 @@
-# References
+# Project References
 
 ## Purpose
-Centralized repository of all references, sources, and materials used throughout the project research phase.
+This document is a centralized repository for all external resources, documentation, tools, and key contacts relevant to the "NetSuite Learning Path" project. Its purpose is to provide a quick and organized way to access important information.
 
-## Reference Categories
+---
 
-### Academic Papers
-| Title | Author(s) | Journal/Conference | Year | DOI/URL | Notes |
-|-------|-----------|-------------------|------|---------|-------|
-| [Title 1] | [Authors] | [Publication] | [Year] | [DOI/URL] | [Relevance notes] |
-| [Title 2] | [Authors] | [Publication] | [Year] | [DOI/URL] | [Relevance notes] |
+## 1. Official NetSuite Documentation
 
-### Books
-| Title | Author(s) | Publisher | Year | ISBN | Chapters/Sections Used |
-|-------|-----------|-----------|------|------|----------------------|
-| [Book 1] | [Authors] | [Publisher] | [Year] | [ISBN] | [Specific sections] |
-| [Book 2] | [Authors] | [Publisher] | [Year] | [ISBN] | [Specific sections] |
+*   **SuiteAnswers Portal:** [https://suiteanswers.custhelp.com/](https://suiteanswers.custhelp.com/)
+    *   **Description:** The primary source for all official NetSuite documentation, help articles, and best practices. (Requires login).
+*   **SuiteScript 2.x API Reference:**
+    *   **Description:** The definitive guide to all SuiteScript 2.x modules, objects, and methods. Essential for development. Found within SuiteAnswers.
+*   **SuiteTalk API Reference (REST & SOAP):**
+    *   **Description:** Official documentation for NetSuite's web services. Covers authentication, endpoints, and record schemas. Found within SuiteAnswers.
+*   **SuiteCloud Development Framework (SDF) Documentation:**
+    *   **Description:** Guide for setting up and using the SDF CLI, and understanding the structure of SDF projects. Found within SuiteAnswers.
 
-### Industry Reports
-| Title | Organization | Publication Date | URL/Source | Key Findings |
-|-------|--------------|------------------|------------|--------------|
-| [Report 1] | [Organization] | [Date] | [URL] | [Key points] |
-| [Report 2] | [Organization] | [Date] | [URL] | [Key points] |
+---
 
-### Technical Documentation
-| Title | Source/Vendor | Version | Date | URL | Sections Used |
-|-------|---------------|---------|------|-----|---------------|
-| [Doc 1] | [Source] | [Version] | [Date] | [URL] | [Sections] |
-| [Doc 2] | [Source] | [Version] | [Date] | [URL] | [Sections] |
+## 2. Key Community & Learning Resources
 
-### Standards and Guidelines
-| Standard | Organization | Version | Date | URL | Applicable Sections |
-|----------|-------------|---------|------|-----|-------------------|
-| [Standard 1] | [Org] | [Version] | [Date] | [URL] | [Sections] |
-| [Standard 2] | [Org] | [Version] | [Date] | [URL] | [Sections] |
+### Blogs & Websites
+*   **Stoic Software:** [https://stoic.software/](https://stoic.software/)
+    *   **Description:** High-quality blog with advanced SuiteScript tutorials and insights.
+*   **NetSuite Professionals Forum:** [https://www.reddit.com/r/Netsuite/](https://www.reddit.com/r/Netsuite/) and [https://netsuiteprofessionals.com/](https://netsuiteprofessionals.com/) (Slack)
+    *   **Description:** Active community forums for asking questions and sharing knowledge. The Slack channel is particularly valuable.
+*   **Tim Dietrich's Blog:** [https://timdietrich.me/](https://timdietrich.me/)
+    *   **Description:** A long-running blog with deep insights into NetSuite and application development.
 
-### Web Resources
-| Title | Website | URL | Date Accessed | Reliability | Notes |
-|-------|---------|-----|---------------|-------------|-------|
-| [Resource 1] | [Website] | [URL] | [Date] | [H/M/L] | [Notes] |
-| [Resource 2] | [Website] | [URL] | [Date] | [H/M/L] | [Notes] |
+### Online Courses
+*   **Udemy: NetSuite Technical Kickstart:** [Link to course, if chosen]
+    *   **Description:** Course for foundational concepts.
+*   **LinkedIn Learning: NetSuite Administration:** [Link to course, if chosen]
+    *   **Description:** Course covering the administrative side of the platform.
 
-### Tools and Software
-| Tool/Software | Vendor | Version | License | URL | Purpose |
-|---------------|--------|---------|---------|-----|---------|
-| [Tool 1] | [Vendor] | [Version] | [License] | [URL] | [Usage] |
-| [Tool 2] | [Vendor] | [Version] | [License] | [URL] | [Usage] |
+---
 
-### Case Studies
-| Title | Organization | Industry | Year | Source | Key Learnings |
-|-------|--------------|----------|------|--------|---------------|
-| [Case 1] | [Organization] | [Industry] | [Year] | [Source] | [Learnings] |
-| [Case 2] | [Organization] | [Industry] | [Year] | [Source] | [Learnings] |
+## 3. Tools & Libraries
 
-### Interviews and Surveys
-| Type | Participant(s) | Date | Method | Topic | Key Insights |
-|------|---------------|------|--------|-------|--------------|
-| Interview | [Name/Role] | [Date] | [In-person/Phone/Video] | [Topic] | [Insights] |
-| Survey | [Group] | [Date] | [Online/Paper] | [Topic] | [Results] |
+*   **Visual Studio Code (VS Code):** [https://code.visualstudio.com/](https://code.visualstudio.com/)
+    *   **Description:** Recommended IDE for SuiteScript and SDF development.
+*   **VS Code SuiteCloud Extension:** [Link to VS Code Marketplace]
+    *   **Description:** Official Oracle extension for interacting with SDF projects.
+*   **Postman:** [https://www.postman.com/](https://www.postman.com/)
+    *   **Description:** Essential tool for testing and interacting with the SuiteTalk REST and SOAP APIs.
+*   **Git:** [https://git-scm.com/](https://git-scm.com/)
+    *   **Description:** Version control system for managing all code and SDF projects.
+*   **GitHub / Azure DevOps:** [URL]
+    *   **Description:** Platform for hosting Git repositories and building CI/CD pipelines.
 
-## Reference Quality Assessment
+---
 
-### Reliability Criteria
-- **High (H)**: Peer-reviewed, authoritative source, current
-- **Medium (M)**: Professional source, mostly current, some validation
-- **Low (L)**: General web content, outdated, unverified
+## 4. Books
 
-### Currency Guidelines
-- **Current**: Published within last 2 years
-- **Recent**: Published within last 5 years
-- **Historical**: Older than 5 years (note if still relevant)
+*   **[Book Title]:** [Author Name], [Year]
+    *   **Description:** [Brief summary of the book's relevance].
+*   **JavaScript: The Good Parts:** Douglas Crockford, 2008
+    *   **Description:** A classic book for understanding the core concepts of JavaScript, which is the foundation of SuiteScript.
 
-## Reference Usage Tracking
+---
 
-| Reference | Used In Document | Section | Quote/Paraphrase | Date Used |
-|-----------|------------------|---------|------------------|-----------|
-| [Reference 1] | [Document] | [Section] | [Quote/Para] | [Date] |
-| [Reference 2] | [Document] | [Section] | [Quote/Para] | [Date] |
+## 5. Key Contacts
 
-## Copyright and Attribution Notes
-[Document any special copyright requirements, attribution needs, or usage restrictions]
+| Name | Role / Area of Expertise | Contact Info | Notes |
+| :--- | :--- | :--- | :--- |
+| [Mentor Name] | NetSuite Architect | [Email/LinkedIn] | Go-to person for questions about advanced architecture and design patterns. |
+| [Community Contact] | SuiteScript Expert | [Slack/Forum Handle] | Very helpful in the NetSuite Professionals Slack on the topic of [Topic]. |
 
-## References to Acquire
-*Future references that need to be obtained*
-
-- [ ] [Reference 1] - [Reason needed]
-- [ ] [Reference 2] - [Reason needed]
-- [ ] [Reference 3] - [Reason needed]
-
-## Citation Style
-[Specify the citation style being used (APA, MLA, IEEE, etc.) and provide examples]
-
-**Example Format**:
-Author, A. A. (Year). Title of work. *Journal Name*, Volume(Issue), pages. DOI
-
-## Reference Archive
-*Location of physical or digital copies of references*
-
-**Digital Archive**: [Location/System]  
-**Physical Archive**: [Location]  
-**Access Credentials**: [If applicable]
+---

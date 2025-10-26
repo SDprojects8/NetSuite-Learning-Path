@@ -1,4 +1,4 @@
-"""Core Project.Name modules."""
+"""Core NetSuite-Learning-Path modules."""
 
 from .manager import LCMManager
 from .models import LCMConfig, LifecycleStage, Resource

@@ -1,159 +1,77 @@
-# Feasibility Spike
+# Feasibility Spike Report
 
-## Spike Overview
-**Spike Name**: [Name of the feasibility study]  
-**Duration**: [Time allocated]  
-**Team**: [Team members involved]  
-**Objective**: [What are we trying to prove/disprove]
+## Purpose
+This document outlines the plan, execution, and findings of a time-boxed technical investigation (a "spike") to determine the feasibility of a specific approach, technology, or implementation strategy. The goal is to reduce risk and uncertainty before committing to a full-scale development effort.
 
-## Research Questions
-- [Question 1]: [Description]
-- [Question 2]: [Description]
-- [Question 3]: [Description]
+---
 
-## Feasibility Dimensions
+## Spike: [Spike Name - e.g., "CI/CD Pipeline with GitHub Actions for SDF"]
 
-### Technical Feasibility
-**Question**: Can we build this with our current technology stack?
+### 1. Objective & Research Question
+*   **Objective:** To determine the viability and complexity of [describe the goal].
+*   **Primary Question(s):** Can we [achieve a specific technical outcome]? What are the limitations of [a specific tool or API]? How long would it take to build a proof-of-concept for [a specific feature]?
 
-**Investigation Approach**:
-- [Method 1]
-- [Method 2]
-- [Method 3]
+---
 
-**Findings**:
-- [Finding 1]
-- [Finding 2]
-- [Finding 3]
+### 2. Hypothesis
+*   **We believe that:** [State the assumption you are testing. e.g., "We believe that it is possible to fully automate the deployment of an SDF project to a NetSuite sandbox using only GitHub Actions and the SDF CLI."]
+*   **This will be confirmed if:** [State the specific, measurable success criteria. e.g., "We can successfully deploy a custom field and a SuiteScript file from a Git push to the `main` branch without any manual intervention."]
 
-**Conclusion**: [✅ Feasible / ⚠️ Feasible with conditions / ❌ Not feasible]
+---
 
-### Economic Feasibility
-**Question**: Is this financially viable?
+### 3. Timebox
+*   **Start Date:** [YYYY-MM-DD]
+*   **End Date:** [YYYY-MM-DD]
+*   **Duration:** [e.g., 2 days, 8 hours]
+*   **Constraint:** The investigation must stop at the end of the timebox, regardless of completion. The goal is learning, not a perfect, production-ready solution.
 
-**Investigation Approach**:
-- [Method 1]
-- [Method 2]
+---
 
-**Cost Analysis**:
-| Cost Category | Estimate | Confidence Level |
-|---------------|----------|------------------|
-| Development | [Amount] | [H/M/L] |
-| Infrastructure | [Amount] | [H/M/L] |
-| Operations | [Amount] | [H/M/L] |
-| **Total** | [Amount] | [H/M/L] |
+### 4. Methodology
+*This section outlines the steps that will be taken during the spike.*
 
-**ROI Projection**: [Analysis]
+1.  **Setup:** [e.g., Install SDF CLI on a test runner, configure authentication secrets in GitHub.]
+2.  **Step 1:** [e.g., Create a basic SDF project with one custom field.]
+3.  **Step 2:** [e.g., Write a simple GitHub Actions workflow file that triggers on push.]
+4.  **Step 3:** [e.g., Add a script step to execute the `sdfcli deploy` command.]
+5.  **Step 4:** [e.g., Test the deployment and troubleshoot any authentication or configuration issues.]
+6.  **Documentation:** Document all findings, errors, and workarounds.
 
-**Conclusion**: [✅ Feasible / ⚠️ Feasible with conditions / ❌ Not feasible]
+---
 
-### Operational Feasibility
-**Question**: Can our organization support this solution?
+### 5. Findings & Results
+*This section is filled out **after** the spike is completed.*
 
-**Investigation Approach**:
-- [Method 1]
-- [Method 2]
+*   **Outcome:** [Success / Partial Success / Failure]
+*   **Key Finding 1:** [e.g., "Authentication using NetSuite's TBA was successful, but required creating a custom script to handle the token generation as the standard GitHub Action for this was insufficient."]
+*   **Key Finding 2:** [e.g., "The deployment of the custom field worked flawlessly."]
+*   **Key Finding 3:** [e.g., "A major challenge was encountered when... This required the following workaround..."]
+*   **Code/Configuration Snippets:**
+    ```yaml
+    # Post any relevant code, scripts, or configuration examples here
+    # that were produced during the spike.
+    ```
+*   **Errors Encountered:**
+    *   `Error Code XYZ`: This occurred because... The solution was...
 
-**Considerations**:
-- **Skills**: [Assessment of required vs available skills]
-- **Capacity**: [Team bandwidth analysis]
-- **Processes**: [Impact on existing processes]
-- **Change Management**: [Organizational readiness]
+---
 
-**Conclusion**: [✅ Feasible / ⚠️ Feasible with conditions / ❌ Not feasible]
+### 6. Conclusion & Recommendation
 
-### Schedule Feasibility
-**Question**: Can we deliver this within the required timeframe?
+*   **Was the hypothesis confirmed?** [Yes/No/Partially]
+*   **Feasibility Assessment:** [Feasible / Feasible with Conditions / Not Feasible]
+*   **Summary:** [Provide a brief summary of the conclusion. e.g., "The proposed approach of using GitHub Actions for SDF deployment is feasible. However, it requires a custom scripting component for authentication that adds approximately 4 hours of initial setup time to any new project."]
+*   **Recommendation:**
+    *   [ ] **Proceed:** We should proceed with this approach for the main project.
+    *   [ ] **Proceed with Caution:** We should proceed, but we need to allocate extra time for [the identified challenges].
+    *   [ ] **Re-evaluate:** The approach is not feasible as is. We need to investigate alternatives, such as [alternative idea].
+    *   [ ] **Abandon:** This approach is not viable.
 
-**Investigation Approach**:
-- [Method 1]
-- [Method 2]
+---
 
-**Timeline Analysis**:
-| Phase | Estimated Duration | Dependencies | Risk Level |
-|-------|-------------------|--------------|------------|
-| [Phase 1] | [Duration] | [Dependencies] | [H/M/L] |
-| [Phase 2] | [Duration] | [Dependencies] | [H/M/L] |
-| **Total** | [Duration] | | |
+### 7. Risks & Open Questions
+*This section lists any new risks or unanswered questions discovered during the spike.*
 
-**Conclusion**: [✅ Feasible / ⚠️ Feasible with conditions / ❌ Not feasible]
-
-### Legal/Compliance Feasibility
-**Question**: Are there legal or regulatory barriers?
-
-**Investigation Approach**:
-- [Method 1]
-- [Method 2]
-
-**Compliance Requirements**:
-- [Requirement 1]: [Status]
-- [Requirement 2]: [Status]
-
-**Legal Considerations**:
-- [Consideration 1]
-- [Consideration 2]
-
-**Conclusion**: [✅ Feasible / ⚠️ Feasible with conditions / ❌ Not feasible]
-
-## Proof of Concept Results
-### Prototype Details
-**What was built**: [Description]  
-**Technology used**: [Tech stack]  
-**Time invested**: [Hours/days]  
-**Team**: [Who worked on it]
-
-### Test Results
-| Test Scenario | Expected Result | Actual Result | Status |
-|---------------|----------------|---------------|--------|
-| [Scenario 1] | [Expected] | [Actual] | [Pass/Fail] |
-| [Scenario 2] | [Expected] | [Actual] | [Pass/Fail] |
-
-### Performance Metrics
-| Metric | Target | Achieved | Notes |
-|--------|--------|----------|-------|
-| [Metric 1] | [Target] | [Achieved] | [Notes] |
-| [Metric 2] | [Target] | [Achieved] | [Notes] |
-
-## Risk Assessment
-| Risk | Probability | Impact | Mitigation |
-|------|-------------|--------|------------|
-| [Risk 1] | [H/M/L] | [H/M/L] | [Strategy] |
-| [Risk 2] | [H/M/L] | [H/M/L] | [Strategy] |
-
-## Overall Feasibility Assessment
-
-### Summary
-- **Technical**: [✅/⚠️/❌]
-- **Economic**: [✅/⚠️/❌]
-- **Operational**: [✅/⚠️/❌]
-- **Schedule**: [✅/⚠️/❌]
-- **Legal/Compliance**: [✅/⚠️/❌]
-
-### Recommendation
-**Overall Assessment**: [✅ Proceed / ⚠️ Proceed with cautions / ❌ Do not proceed]
-
-**Rationale**: [Explain the recommendation]
-
-### Conditions for Success
-If proceeding with conditions:
-- [ ] [Condition 1]
-- [ ] [Condition 2]
-- [ ] [Condition 3]
-
-## Next Steps
-- [ ] [Action 1]
-- [ ] [Action 2]
-- [ ] [Action 3]
-
-## Spike Retrospective
-**What went well**:
-- [Point 1]
-- [Point 2]
-
-**What could be improved**:
-- [Point 1]
-- [Point 2]
-
-**Lessons learned**:
-- [Lesson 1]
-- [Lesson 2]
+*   **Risk 1:** [e.g., "The custom authentication script creates a dependency that will need to be maintained."]
+*   **Risk 2:** [e.g., "The performance of the deployment for a large project with hundreds of objects is still unknown."]
+*   **Open Question 1:** [e.g., "How will we handle rollbacks in an automated fashion?"]

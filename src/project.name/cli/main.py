@@ -1,4 +1,4 @@
-"""Main CLI interface for Project.Name."""
+"""Main CLI interface for NetSuite-Learning-Path."""
 
 import logging
 from typing import Optional
@@ -11,7 +11,7 @@ from .. import __version__
 from ..core import LCMManager
 from ..core.models import Resource, LifecycleStage, ResourceStatus
 
-app = typer.Typer(help="Project.Name CLI")
+app = typer.Typer(help="NetSuite-Learning-Path CLI")
 console = Console()
 
 # Global manager instance
@@ -29,7 +29,7 @@ def get_manager() -> LCMManager:
 @app.command()
 def version():
     """Show version information."""
-    console.print(f"Project.Name version: {__version__}")
+    console.print(f"NetSuite-Learning-Path version: {__version__}")
 
 
 @app.command()

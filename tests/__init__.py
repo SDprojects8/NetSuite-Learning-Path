@@ -1,1 +1,1 @@
-"""Tests for Project.Name package."""
+"""Tests for NetSuite-Learning-Path package."""

@@ -1,4 +1,4 @@
-"""Project.Name Package.
+"""NetSuite-Learning-Path Package.
 
 A comprehensive Life Cycle Management automation toolkit.
 """

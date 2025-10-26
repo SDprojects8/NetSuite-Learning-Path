@@ -1,0 +1,29 @@
+ERP solution architect: other technologies firm check with them
+Job Description:
+
+We are seeking a highly skilled Technical ERP Solutions Architect with deep experience in NetSuite implementation and ERP system integration. This role is responsible for designing robust, scalable, and high-performing NetSuite-based enterprise solutions. The ideal candidate has hands-on technical expertise with the SuiteCloud development platform, ERP integrations, data architecture, and NetSuite module configuration.
+
+
+
+Key Responsibilities:
+
+Design and own the end-to-end technical architecture for NetSuite ERP, ensuring alignment with business processes and scalability requirements.
+Develop custom scripts, workflows, and configurations using SuiteScript, SuiteFlow, and SuiteBuilder.
+Lead integration architecture and data flow design between NetSuite and external systems (e.g., Salesforce, HRIS, E-commerce, BI tools).
+Define and execute data migration strategies, ensuring data accuracy and integrity across legacy and new systems.
+Enforce ERP development standards, conduct code reviews, and manage platform governance and technical documentation.
+Collaborate with functional leads, developers, and third-party vendors to deliver high-quality ERP solutions on time.
+Evaluate and implement new NetSuite features, modules, and platform enhancements in line with business needs
+
+
+
+
+Required Technical Skills & Experience:
+
+7+ years of experience in technical solution architecture for ERP systems, including 3+ years in NetSuite ERP.
+Deep knowledge of SuiteScript (JavaScript), SuiteTalk (SOAP/REST APIs), and SuiteCloud Development Framework (SDF).
+Experience designing integrations with 3rd party systems (Salesforce, HRIS, eCommerce platforms, banks, etc.).
+Hands-on experience with data migration strategies using CSV imports, REST APIs, and middleware.
+Strong background in data modeling, workflow automation, and custom scripting in NetSuite.
+Proficiency in version control (Git), CI/CD pipelines, and NetSuite DevOps practices.
+Knowledge of role-based access control, platform governance, and NetSuite system performance tuning

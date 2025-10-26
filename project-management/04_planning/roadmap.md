@@ -1,167 +1,90 @@
-# Project Roadmap
+# Project Roadmap: NetSuite Learning Path
 
-## Document Information
-**Project**: [Project Name]  
-**Version**: [Version]  
-**Date**: [Date]  
-**Owner**: [Project Manager Name]  
-**Last Updated**: [Date]
+## Purpose
+This document outlines the high-level strategic plan and timeline for the NetSuite Learning Path project. It provides a visual guide to the major phases, key milestones, and deliverables, ensuring the project stays aligned with its primary goal of achieving job-readiness for a Technical ERP Solutions Architect role.
 
-## Roadmap Overview
-[High-level description of the project timeline and key phases]
+---
 
-## Strategic Objectives
-- [Objective 1]: [Description]
-- [Objective 2]: [Description]
-- [Objective 3]: [Description]
+## High-Level Timeline (4 Months)
 
-## Roadmap Timeline
+The project is structured into a 4-month timeline, broken down by key learning phases.
 
-### Phase 1: [Phase Name] ([Start Date] - [End Date])
-**Objectives**:
-- [Objective 1]
-- [Objective 2]
+| Timeline      | Phase                                                | Key Focus Areas                                                                 | Major Deliverable / Milestone                          |
+|---------------|------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------|
+| **Month 1**   | **Phase 1 & 2 (Kickstart)**                          | Functional Foundations, Admin Tools, JavaScript, and Intro to SuiteScript       | `SuiteFoundation` Certification Prep, Basic Scripts    |
+| **Month 2**   | **Phase 2 (Continued) & 3**                          | Mastering SuiteScript, API Integration, and Data Migration Techniques           | Functional SuiteScripts, Successful API Integration    |
+| **Month 3**   | **Phase 4 & 5 (Kickstart)**                          | DevOps (SDF), CI/CD, and Advanced Solution Architecture                         | Functional CI/CD Pipeline, Portfolio Project 1         |
+| **Month 4**   | **Phase 5 (Continued)**                              | Intensive Portfolio Building and Certification Preparation                        | Completed Portfolio, `SuiteCloud Developer II` Prep    |
 
-**Key Deliverables**:
-- [Deliverable 1]
-- [Deliverable 2]
-- [Deliverable 3]
+---
 
-**Success Criteria**:
-- [Criterion 1]
-- [Criterion 2]
+## Detailed Quarterly & Monthly Breakdown
 
-**Dependencies**:
-- [Dependency 1]
-- [Dependency 2]
+### Quarter 4, 2023 (Initial Push)
 
-### Phase 2: [Phase Name] ([Start Date] - [End Date])
-**Objectives**:
-- [Objective 1]
-- [Objective 2]
+#### Month 1: Foundation & Core Development Kickstart
+*   **Weeks 1-2: Phase 1 - Foundation (Functional & Admin)**
+    *   **Goal:** Understand the "what" and "how" from a user and admin perspective.
+    *   **Activities:**
+        *   Complete "NetSuite Essentials" training.
+        *   Learn SuiteBuilder: Customize forms, fields, and records.
+        *   Learn SuiteFlow: Build a simple approval workflow.
+    *   **Milestone:** Achieve `SuiteFoundation` certification.
 
-**Key Deliverables**:
-- [Deliverable 1]
-- [Deliverable 2]
+*   **Weeks 3-4: Phase 2 - Core Development (Part 1)**
+    *   **Goal:** Establish a strong foundation in JavaScript and begin writing basic SuiteScripts.
+    *   **Activities:**
+        *   Complete an advanced JavaScript (ES6+) course.
+        *   Set up the development environment.
+        *   Write and deploy a "Hello World" User Event script.
+        *   Write and deploy a simple Client script for form validation.
+    *   **Milestone:** Successfully deploy two different types of SuiteScripts to a sandbox.
 
-**Success Criteria**:
-- [Criterion 1]
-- [Criterion 2]
+#### Month 2: Deep Dive into Development & Integration
+*   **Weeks 5-6: Phase 2 - Core Development (Part 2)**
+    *   **Goal:** Master the most common and powerful script types.
+    *   **Activities:**
+        *   Develop a Scheduled script for nightly data processing.
+        *   Develop a Map/Reduce script for a large data update task.
+        *   Deep dive into `N/record` and `N/search` API modules.
+    *   **Milestone:** A suite of functional scripts that automate a business process.
 
-**Dependencies**:
-- [Dependency 1]
-- [Dependency 2]
+*   **Weeks 7-8: Phase 3 - Integration & Data Management**
+    *   **Goal:** Learn to get data in and out of NetSuite programmatically.
+    *   **Activities:**
+        *   Configure Postman for SuiteTalk REST API access using TBA.
+        *   Perform CRUD operations on Customer and Sales Order records via API.
+        *   Execute a data migration of 1,000+ records using CSV import.
+        *   Write a Python script to automate the creation of 100 records via API.
+    *   **Milestone:** Successful two-way data synchronization between NetSuite and an external script.
 
-### Phase 3: [Phase Name] ([Start Date] - [End Date])
-**Objectives**:
-- [Objective 1]
-- [Objective 2]
+### Quarter 1, 2024 (Advanced Topics & Solidification)
 
-**Key Deliverables**:
-- [Deliverable 1]
-- [Deliverable 2]
+#### Month 3: DevOps & Advanced Architecture
+*   **Weeks 9-10: Phase 4 - DevOps & Platform Governance**
+    *   **Goal:** Apply modern DevOps practices to NetSuite development.
+    *   **Activities:**
+        *   Install and configure the SuiteCloud Development Framework (SDF) CLI.
+        *   Structure a NetSuite project in Git.
+        *   Deploy a SuiteScript and a Custom Field using SDF.
+        *   Create a basic CI/CD pipeline in GitHub Actions to automate SDF deployment.
+    *   **Milestone:** A fully automated deployment from a Git push to a sandbox environment.
 
-**Success Criteria**:
-- [Criterion 1]
-- [Criterion 2]
+*   **Weeks 11-12: Phase 5 - Advanced Architecture & Portfolio (Part 1)**
+    *   **Goal:** Begin designing and building a comprehensive solution.
+    *   **Activities:**
+        *   Design the architecture for the "Multi-System Integration Hub" project.
+        *   Develop the core components of the middleware.
+        *   Establish the connection and authentication logic for NetSuite and a mock external system.
+    *   **Milestone:** Completion and demonstration of Portfolio Project 1.
 
-## Feature Roadmap
-
-### Q1 [Year] Features
-| Feature | Priority | Effort | Target Release | Status |
-|---------|----------|--------|----------------|--------|
-| [Feature 1] | [High/Medium/Low] | [Story Points] | [Date] | [Status] |
-| [Feature 2] | [High/Medium/Low] | [Story Points] | [Date] | [Status] |
-
-### Q2 [Year] Features
-| Feature | Priority | Effort | Target Release | Status |
-|---------|----------|--------|----------------|--------|
-| [Feature 1] | [High/Medium/Low] | [Story Points] | [Date] | [Status] |
-| [Feature 2] | [High/Medium/Low] | [Story Points] | [Date] | [Status] |
-
-## Milestones
-
-| Milestone | Date | Description | Dependencies | Owner |
-|-----------|------|-------------|--------------|-------|
-| [Milestone 1] | [Date] | [Description] | [Dependencies] | [Name] |
-| [Milestone 2] | [Date] | [Description] | [Dependencies] | [Name] |
-| [Milestone 3] | [Date] | [Description] | [Dependencies] | [Name] |
-
-## Resource Allocation
-
-### Team Capacity
-| Role | Q1 | Q2 | Q3 | Q4 |
-|------|----|----|----|----|
-| [Role 1] | [FTE] | [FTE] | [FTE] | [FTE] |
-| [Role 2] | [FTE] | [FTE] | [FTE] | [FTE] |
-
-### Budget Allocation
-| Category | Q1 | Q2 | Q3 | Q4 | Total |
-|----------|----|----|----|----|-------|
-| Development | [Amount] | [Amount] | [Amount] | [Amount] | [Amount] |
-| Infrastructure | [Amount] | [Amount] | [Amount] | [Amount] | [Amount] |
-| Third Party | [Amount] | [Amount] | [Amount] | [Amount] | [Amount] |
-
-## Risk Considerations
-
-### High-Level Risks
-| Risk | Impact | Mitigation | Timeline Impact |
-|------|--------|------------|-----------------|
-| [Risk 1] | [H/M/L] | [Strategy] | [Impact] |
-| [Risk 2] | [H/M/L] | [Strategy] | [Impact] |
-
-## Dependencies and Assumptions
-
-### External Dependencies
-- [Dependency 1]: [Description and timeline]
-- [Dependency 2]: [Description and timeline]
-
-### Key Assumptions
-- [Assumption 1]
-- [Assumption 2]
-- [Assumption 3]
-
-## Communication Plan
-
-### Roadmap Reviews
-- **Frequency**: [Monthly/Quarterly]
-- **Participants**: [Stakeholder list]
-- **Format**: [Meeting/Report]
-
-### Status Updates
-- **Frequency**: [Weekly/Bi-weekly]
-- **Format**: [Dashboard/Report/Email]
-- **Recipients**: [Distribution list]
-
-## Success Metrics
-
-### Key Performance Indicators
-| KPI | Current | Target | Timeline |
-|-----|---------|--------|----------|
-| [KPI 1] | [Value] | [Target] | [Date] |
-| [KPI 2] | [Value] | [Target] | [Date] |
-
-## Change Management
-
-### Roadmap Change Process
-1. [Step 1]: [Description]
-2. [Step 2]: [Description]
-3. [Step 3]: [Description]
-
-### Change Authority
-| Change Type | Approval Required |
-|-------------|-------------------|
-| Feature Addition | [Role] |
-| Timeline Change | [Role] |
-| Scope Change | [Role] |
-
-## Roadmap Archive
-
-### Version History
-| Version | Date | Changes | Approved By |
-|---------|------|---------|-------------|
-| 1.0 | [Date] | Initial roadmap | [Name] |
-| 1.1 | [Date] | [Changes] | [Name] |
-
-## Future Considerations
-[Items beyond the current roadmap timeline that should be considered for future planning]
+#### Month 4: Portfolio Building & Finalization
+*   **Weeks 13-16: Phase 5 - Portfolio & Certification (Part 2)**
+    *   **Goal:** Complete all portfolio projects and prepare for final certification.
+    *   **Activities:**
+        *   Build the "Automated Data Migration Framework" (Project 2).
+        *   Build the "NetSuite DevOps Toolkit" (Project 3).
+        *   Build the "Custom Workflow Engine" (Project 4).
+        *   Build the "Real-Time Analytics Engine" (Project 5).
+        *   Study for and take the `SuiteCloud Developer II` certification exam.
+    *   **Milestone:** A complete portfolio of 5 demonstrable projects and achievement of the final certification.

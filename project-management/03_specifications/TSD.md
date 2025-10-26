@@ -1,258 +1,152 @@
 # Technical Specification Document (TSD)
+# Portfolio Project: [Project Name]
+
+---
 
 ## Document Information
-**Document Title**: [Project Name] Technical Specification  
-**Version**: [Version Number]  
-**Date**: [Date]  
-**Author**: [Author Name]  
-**Technical Reviewers**: [Reviewer Names]  
-**Status**: [Draft/Review/Approved]
+**Version:** 1.0  
+**Date:** [YYYY-MM-DD]  
+**Author:** [Your Name]  
+**Status:** [Draft / In Review / Approved]
 
-## Executive Summary
-[Brief overview of the technical solution]
+---
 
-## System Architecture
+## 1. Introduction
 
-### High-Level Architecture
-[Architectural overview diagram and description]
+### 1.1. Purpose
+This Technical Specification Document (TSD) details the internal design and implementation plan for the "[Project Name]" project. While the Functional Specification Document (FSD) describes *what* the system does from a user's perspective, this TSD describes *how* it will be built from a technical perspective. It provides a blueprint for the developer.
 
-### System Components
-| Component | Purpose | Technology | Dependencies |
-|-----------|---------|------------|--------------|
-| [Component 1] | [Purpose] | [Tech Stack] | [Dependencies] |
-| [Component 2] | [Purpose] | [Tech Stack] | [Dependencies] |
+### 1.2. Scope
+This document covers the technical architecture, component design, data structures, algorithms, and implementation details required to meet the functional requirements outlined in the FSD. It is intended to be a living document that may be updated as implementation details are refined.
 
-### Deployment Architecture
-[Description of how the system will be deployed]
+### 1.3. Intended Audience
+*   **Project Developer (Self):** The primary guide for building the application.
+*   **Technical Reviewers/Mentors:** To provide feedback on the proposed technical approach.
+*   **Potential Employers:** To demonstrate the ability to design and document a robust technical solution.
 
-## Technology Stack
+### 1.4. References
+| ID | Document/Link | Description |
+|----|---|---|
+| 1  | `FSD.md` | The Functional Specification Document outlining what the system must do. |
+| 2  | `architecture.md` | The high-level system architecture diagram and principles. |
 
-### Programming Languages
-- **Primary**: [Language] - [Version] - [Justification]
-- **Secondary**: [Language] - [Version] - [Purpose]
+---
 
-### Frameworks and Libraries
-| Framework/Library | Version | Purpose | License |
-|------------------|---------|---------|---------|
-| [Framework 1] | [Version] | [Purpose] | [License] |
-| [Framework 2] | [Version] | [Purpose] | [License] |
+## 2. System Architecture & Design
 
-### Database Systems
-- **Primary Database**: [Database] - [Version]
-- **Caching**: [Technology] - [Version]
-- **Search**: [Technology] - [Version]
+### 2.1. High-Level Architecture
+The system follows a modular, service-based architecture. It is composed of three main logical components: a **Polling Service**, a **Transformation Engine**, and a **Connector Service**. The Polling Service queries the source system for new data. This data is passed to the Transformation Engine, which converts it into the format required by the destination system. Finally, the Connector Service sends the transformed data to the destination system's API.
 
-### Infrastructure
-- **Cloud Provider**: [Provider]
-- **Compute**: [Instance types/containers]
-- **Storage**: [Storage types and sizes]
-- **Network**: [Network configuration]
+*(A link to a diagram in `05_design/architecture.md` would be placed here).*
 
-## Detailed Component Design
+### 2.2. Design Principles
+*   **Stateless:** The application will not store session information between runs. All necessary state (like the timestamp of the last successful run) will be persisted externally (e.g., in a state file).
+*   **Modularity:** Each component (polling, transforming, connecting) will be developed as a separate module with clear interfaces, allowing for easier testing and maintenance.
+*   **Idempotency:** The system should be designed so that running the same job multiple times with the same input does not result in duplicate records in the destination system. This will be achieved by using the `externalId` field.
+*   **Configurability:** All environment-specific details (endpoints, credentials, schedules) will be managed via external configuration, not hardcoded.
 
-### Component 1: [Component Name]
+### 2.3. Technology Stack
+| Component | Technology/Library | Version | Purpose |
+|---|---|---|---|
+| Language | Python | 3.9+ | Core application language. |
+| API Interaction | `requests`, `requests-oauthlib` | latest | For making HTTP requests to REST/SOAP APIs. |
+| Data Handling | `pandas` | latest | For efficient data transformation and cleaning (if needed). |
+| Configuration | `python-dotenv` | latest | For managing environment variables from a `.env` file. |
+| Scheduling | OS-level cron job / `apscheduler` | latest | For running the integration on a schedule. |
+| Logging | `logging` (standard library) | N/A | For structured application logging. |
 
-#### Responsibilities
-[What this component does]
+---
 
-#### Interfaces
+## 3. Component Design
+
+### 3.1. Main Application (`main.py`)
+*   **Responsibility:** Orchestrates the overall integration flow.
+*   **Logic:**
+    1.  Loads configuration.
+    2.  Initializes the logging service.
+    3.  Retrieves the timestamp of the last successful run from the state file.
+    4.  Instantiates and calls the `SalesforcePoller` to get new/updated data.
+    5.  If data is returned, passes it to the `DataTransformer`.
+    6.  Passes the transformed data to the `NetSuiteConnector`.
+    7.  If the entire process is successful, updates the timestamp in the state file.
+
+### 3.2. Salesforce Poller (`salesforce_poller.py`)
+*   **Responsibility:** Fetches data from Salesforce.
+*   **Class:** `SalesforcePoller`
+*   **Methods:**
+    *   `__init__(self, config)`: Initializes the client with OAuth credentials.
+    *   `get_new_accounts(self, last_run_timestamp)`:
+        *   Constructs a SOQL query to select Accounts created since `last_run_timestamp`.
+        *   Performs a GET request to the Salesforce REST API.
+        *   Handles API pagination if necessary.
+        *   Returns a list of account dictionaries.
+
+### 3.3. Data Transformer (`transformer.py`)
+*   **Responsibility:** Maps and transforms data from the Salesforce format to the NetSuite format.
+*   **Class:** `DataTransformer`
+*   **Methods:**
+    *   `transform_account_to_customer(self, salesforce_account)`:
+        *   Takes a single Salesforce account dictionary as input.
+        *   Creates a new dictionary for the NetSuite customer.
+        *   Applies the field mappings defined in `FSD.md`, including any hardcoded values (e.g., `subsidiary`).
+        *   Returns the NetSuite customer dictionary.
+
+### 3.4. NetSuite Connector (`netsuite_connector.py`)
+*   **Responsibility:** Sends data to the NetSuite API.
+*   **Class:** `NetSuiteConnector`
+*   **Methods:**
+    *   `__init__(self, config)`: Initializes the client with NetSuite TBA credentials.
+    *   `_generate_tba_header(self)`: Private method to generate the complex OAuth 1.0 signature required for TBA.
+    *   `create_customer(self, customer_data)`:
+        *   Takes a NetSuite customer dictionary as input.
+        *   Performs a `POST` request to the NetSuite REST API (`/record/v1/customer`).
+        *   Includes the TBA header.
+        *   Checks the HTTP response code. Raises an exception for non-2xx responses.
+        *   Returns the response from the NetSuite API.
+
+---
+
+## 4. Error Handling and Logging
+
+### 4.1. Error Handling Strategy
+*   **Transient Errors (e.g., network timeout, 5xx API errors):** The application will implement a simple retry mechanism (e.g., retry up to 3 times with exponential backoff) for API calls.
+*   **Permanent Errors (e.g., 4xx API errors, data validation failures):** The error will be caught, logged in detail (including the request payload that caused it), and the application will move to the next record. The run will be marked as a partial success.
+*   **Configuration Errors (e.g., missing credentials):** The application will fail fast on startup with a critical error message and will not attempt to run.
+
+### 4.2. Logging
+*   A `logging.ini` file will configure a rotating file logger.
+*   **`INFO`:** High-level status messages (e.g., "Starting run", "Found 10 new accounts", "Run completed successfully").
+*   **`DEBUG`:** Detailed information for troubleshooting (e.g., API request/response bodies, data transformations).
+*   **`ERROR`:** All caught exceptions and error details.
+*   **Log Format:** `[YYYY-MM-DD HH:MM:SS] [LEVEL] [MODULE_NAME] - [MESSAGE]`
+
+---
+
+## 5. Security
+
+### 5.1. Credentials Management
+All secrets (API keys, tokens, consumer secrets) will be stored in a `.env` file. This file will be loaded at runtime and will be listed in the `.gitignore` file to prevent it from being committed to version control.
+
+### 5.2. Data Security
+All API communication will occur over HTTPS, ensuring data is encrypted in transit. No sensitive data will be stored at rest by the application, other than what is temporarily held in memory during execution.
+
+---
+
+## 6. Deployment
+The application will be packaged with a `requirements.txt` file listing all dependencies. It will be deployed to a server or environment where Python is installed. Execution will be managed by a standard cron job configured to run at the required frequency (e.g., every 5 minutes).
+
+A `run.sh` script will be provided to encapsulate the logic for activating the virtual environment and executing the main Python script.
+```bash
+#!/bin/bash
+source venv/bin/activate
+python src/main.py
 ```
-[API or interface definition]
-```
 
-#### Internal Design
-[How it works internally]
+---
 
-#### Data Storage
-[How it stores and manages data]
+## 7. Appendix
 
-#### Configuration
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| [Param 1] | [Default] | [Purpose] |
-| [Param 2] | [Default] | [Purpose] |
-
-#### Error Handling
-[How errors are handled]
-
-## Database Design
-
-### Conceptual Model
-[High-level data relationships]
-
-### Logical Model
-[Detailed entity relationships]
-
-### Physical Design
-
-#### Table: [Table Name]
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| [Column 1] | [Type] | [Constraints] | [Purpose] |
-| [Column 2] | [Type] | [Constraints] | [Purpose] |
-
-**Indexes**:
-- [Index 1]: [Columns] - [Purpose]
-- [Index 2]: [Columns] - [Purpose]
-
-## API Specifications
-
-### REST API Endpoints
-
-#### Endpoint: [Endpoint Name]
-**URL**: `[METHOD] /api/v1/[resource]`  
-**Purpose**: [What this endpoint does]  
-**Authentication**: [Required auth]
-
-**Request**:
-```json
-{
-  "field1": "value1",
-  "field2": "value2"
-}
-```
-
-**Response**:
-```json
-{
-  "status": "success",
-  "data": {
-    "field1": "value1",
-    "field2": "value2"
-  }
-}
-```
-
-**Error Responses**:
-- `400 Bad Request`: [When this occurs]
-- `401 Unauthorized`: [When this occurs]
-- `404 Not Found`: [When this occurs]
-
-## Security Architecture
-
-### Authentication
-[How users are authenticated]
-
-### Authorization
-[How permissions are managed]
-
-### Data Protection
-[How sensitive data is protected]
-
-### Security Controls
-| Control | Implementation | Purpose |
-|---------|----------------|---------|
-| [Control 1] | [How implemented] | [Purpose] |
-| [Control 2] | [How implemented] | [Purpose] |
-
-## Performance Specifications
-
-### Performance Requirements
-| Metric | Target | Method of Measurement |
-|--------|--------|--------------------|
-| Response Time | [Time] | [How measured] |
-| Throughput | [Rate] | [How measured] |
-| Availability | [Percentage] | [How measured] |
-
-### Scalability Design
-[How the system scales]
-
-### Caching Strategy
-[Caching approach and implementation]
-
-## Integration Specifications
-
-### External System Integrations
-
-#### Integration: [System Name]
-**Purpose**: [Why integrate]  
-**Protocol**: [HTTP/SOAP/etc.]  
-**Authentication**: [Method]  
-**Data Format**: [JSON/XML/etc.]  
-**Error Handling**: [Approach]
-
-**Endpoints Used**:
-| Endpoint | Purpose | Frequency |
-|----------|---------|-----------|
-| [Endpoint 1] | [Purpose] | [How often] |
-| [Endpoint 2] | [Purpose] | [How often] |
-
-## Monitoring and Logging
-
-### Logging Strategy
-[What gets logged and how]
-
-### Monitoring Points
-| Metric | Threshold | Action |
-|--------|-----------|--------|
-| [Metric 1] | [Value] | [What happens] |
-| [Metric 2] | [Value] | [What happens] |
-
-### Alerting
-[How alerts are configured and sent]
-
-## Development Guidelines
-
-### Coding Standards
-[Reference to coding standards or include key points]
-
-### Testing Requirements
-- **Unit Tests**: [Coverage requirement]
-- **Integration Tests**: [Requirements]
-- **Performance Tests**: [Requirements]
-
-### Code Review Process
-[How code reviews are conducted]
-
-## Deployment Specifications
-
-### Environments
-| Environment | Purpose | Configuration |
-|-------------|---------|---------------|
-| Development | [Purpose] | [Config] |
-| Staging | [Purpose] | [Config] |
-| Production | [Purpose] | [Config] |
-
-### Deployment Process
-1. [Step 1]
-2. [Step 2]
-3. [Step 3]
-
-### Rollback Procedures
-[How to rollback deployments]
-
-## Configuration Management
-
-### Configuration Files
-| File | Purpose | Format |
-|------|---------|--------|
-| [File 1] | [Purpose] | [Format] |
-| [File 2] | [Purpose] | [Format] |
-
-### Environment Variables
-| Variable | Purpose | Default |
-|----------|---------|---------|
-| [Var 1] | [Purpose] | [Default] |
-| [Var 2] | [Purpose] | [Default] |
-
-## Risk Assessment
-
-### Technical Risks
-| Risk | Impact | Probability | Mitigation |
-|------|--------|-------------|------------|
-| [Risk 1] | [H/M/L] | [H/M/L] | [Strategy] |
-| [Risk 2] | [H/M/L] | [H/M/L] | [Strategy] |
-
-## Future Considerations
-[Technical debt, future enhancements, evolution path]
-
-## Appendices
-
-### Glossary
-[Technical terms and definitions]
-
-### References
-[Technical references and documentation]
-
-### Decision Records
-[Architectural decision records]
+### 7.1. Revision History
+| Version | Date | Author | Changes |
+|---|---|---|---|
+| 1.0 | [YYYY-MM-DD] | [Your Name] | Initial draft. |

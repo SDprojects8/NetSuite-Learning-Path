@@ -1,181 +1,87 @@
 # RAID Log (Risks, Assumptions, Issues, Dependencies)
+# Project: NetSuite Learning Path
+
+---
 
 ## Document Information
-**Project**: [Project Name]  
-**Version**: [Version]  
-**Date**: [Date]  
-**Owner**: [Project Manager Name]  
-**Last Updated**: [Date]
+**Version:** 1.0  
+**Date:** [YYYY-MM-DD]  
+**Author:** [Your Name]  
+**Status:** [Living Document]
 
-## RAID Log Overview
-This document tracks Risks, Assumptions, Issues, and Dependencies throughout the project lifecycle.
+---
 
-## RISKS
+## 1. Introduction
 
-### Active Risks
-| ID | Risk Description | Category | Probability | Impact | Owner | Status | Mitigation Actions |
-|----|------------------|----------|-------------|--------|-------|--------|--------------------|
-| R001 | [Risk description] | [Category] | [H/M/L] | [H/M/L] | [Name] | [Open/Closed] | [Actions] |
-| R002 | [Risk description] | [Category] | [H/M/L] | [H/M/L] | [Name] | [Open/Closed] | [Actions] |
+### 1.1. Purpose
+This document is a live log to track the key **Risks**, **Assumptions**, **Issues**, and **Dependencies** (RAID) associated with the "NetSuite Learning Path" project. Its purpose is to provide a single, centralized place to manage these critical project elements, ensuring they are visible and actively managed throughout the project lifecycle.
 
-### Risk Summary
-- **Total Active Risks**: [Number]
-- **High Priority Risks**: [Number]
-- **Risks Closed This Period**: [Number]
+### 1.2. How to Use This Log
+*   **Risks:** Potential future events that could negatively impact the project.
+*   **Assumptions:** Things held to be true for planning purposes, which if proven false, could become risks or issues.
+*   **Issues:** Problems or roadblocks that are currently happening and require action.
+*   **Dependencies:** Items the project needs from other parties or external sources to proceed.
 
-## ASSUMPTIONS
+This log should be reviewed regularly (e.g., weekly) to update statuses and add new items.
 
-### Current Assumptions
-| ID | Assumption | Category | Owner | Date Added | Validation Required | Status |
-|----|------------|----------|-------|------------|-------------------|--------|
-| A001 | [Assumption text] | [Category] | [Name] | [Date] | [Y/N] | [Valid/Invalid/TBD] |
-| A002 | [Assumption text] | [Category] | [Name] | [Date] | [Y/N] | [Valid/Invalid/TBD] |
+---
 
-### Assumption Validation
-| ID | Validation Method | Target Date | Result | Impact if Invalid |
-|----|------------------|-------------|--------|-------------------|
-| A001 | [Method] | [Date] | [Result] | [Impact] |
-| A002 | [Method] | [Date] | [Result] | [Impact] |
+## 2. Status Key
+| Status | Description |
+| :--- | :--- |
+| **Open** | The item has been identified and is being actively monitored or worked on. |
+| **In Progress** | Action is being taken to address or resolve the item. |
+| **Resolved** | The issue or risk has been successfully addressed and is no longer a concern. |
+| **Closed** | The item is no longer relevant, has been resolved, or the risk has passed. |
+| **Watch** | The item is being monitored, but no direct action is currently required. |
+| **Blocked** | Progress on this item is blocked by another factor. |
 
-## ISSUES
+---
 
-### Open Issues
-| ID | Issue Description | Category | Priority | Raised Date | Owner | Status | Resolution |
-|----|------------------|----------|----------|-------------|-------|--------|------------|
-| I001 | [Issue description] | [Category] | [H/M/L] | [Date] | [Name] | [Open/Closed] | [Resolution] |
-| I002 | [Issue description] | [Category] | [H/M/L] | [Date] | [Name] | [Open/Closed] | [Resolution] |
+## 3. Risks
+*A high-level summary of the most critical risks. For more detail, see the `risk_register.md`.*
 
-### Issue Categories
-- **Technical**: [Count]
-- **Resource**: [Count]
-- **Process**: [Count]
-- **External**: [Count]
+| ID | Date Identified | Risk Description | Impact (H/M/L) | Mitigation Plan | Owner | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **R-01** | [YYYY-MM-DD] | Underestimation of the time required for a complex topic (e.g., SuiteScript). | High | Add a 20% contingency buffer to the schedule; de-risk complex topics with initial spikes. | [Your Name] | Open |
+| **R-02** | [YYYY-MM-DD] | Loss of access to the NetSuite sandbox account. | High | Research free developer account alternatives as a backup plan. | [Your Name] | Open |
+| **R-03** | [YYYY-MM-DD] | Personal burnout or loss of motivation due to the self-directed nature of the project. | Medium | Adhere to a strict schedule; create public accountability; plan for breaks. | [Your Name] | Open |
 
-### Issue Aging
-| Priority | 0-7 Days | 8-14 Days | 15-30 Days | >30 Days |
-|----------|----------|-----------|------------|----------|
-| High | [Count] | [Count] | [Count] | [Count] |
-| Medium | [Count] | [Count] | [Count] | [Count] |
-| Low | [Count] | [Count] | [Count] | [Count] |
+---
 
-## DEPENDENCIES
+## 4. Assumptions
+*Key assumptions made during the planning process.*
 
-### Active Dependencies
-| ID | Dependency Description | Type | External Party | Expected Date | Status | Impact if Late |
-|----|----------------------|------|----------------|---------------|--------|----------------|
-| D001 | [Dependency description] | [Internal/External] | [Party] | [Date] | [On Track/At Risk/Late] | [Impact] |
-| D002 | [Dependency description] | [Internal/External] | [Party] | [Date] | [On Track/At Risk/Late] | [Impact] |
+| ID | Date Identified | Assumption Description | Validation Plan | Owner | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **A-01** | [YYYY-MM-DD] | A NetSuite sandbox/development account will be available for the entire project duration. | Confirm account access and duration limitations by [Date]. | [Your Name] | Open |
+| **A-02** | [YYYY-MM-DD] | The core requirements of the target job role will remain stable over the project's timeline. | Periodically review the target job description and similar roles for any significant changes. | [Your Name] | Open |
+| **A-03** | [YYYY-MM-DD] | The selected online courses and learning materials are of high quality and are up-to-date. | Review course ratings and publication dates before starting; cross-reference with official documentation. | [Your Name] | Open |
 
-### Dependency Types
-- **Internal**: Dependencies on other teams/projects within the organization
-- **External**: Dependencies on external vendors/partners
-- **Technical**: Dependencies on technology/infrastructure
-- **Business**: Dependencies on business decisions/approvals
+---
 
-### Critical Path Dependencies
-| ID | Description | Impact on Critical Path | Mitigation |
-|----|-------------|------------------------|------------|
-| D001 | [Description] | [Impact] | [Mitigation] |
+## 5. Issues
+*Active problems that require resolution.*
 
-## RAID Summary Dashboard
+| ID | Date Identified | Issue Description | Impact (H/M/L) | Action Plan | Owner | Due Date | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **I-01** | [YYYY-MM-DD] | [Example: The SDF CLI tool is failing to authenticate with the sandbox due to a recent update.] | High | [Example: Research the error on SuiteAnswers; try downgrading the CLI version; if unresolved, post on the community forum.] | [Your Name] | [Date] | Open |
+| | | | | | | | |
 
-### Summary Metrics
-| Category | Total | High Priority | Overdue | Closed This Week |
-|----------|-------|---------------|---------|------------------|
-| Risks | [#] | [#] | [#] | [#] |
-| Assumptions | [#] | [#] | [#] | [#] |
-| Issues | [#] | [#] | [#] | [#] |
-| Dependencies | [#] | [#] | [#] | [#] |
+---
 
-### Priority Distribution
-```
-High Priority Items:
-- Risks: [#]
-- Issues: [#]
-- Dependencies: [#]
+## 6. Dependencies
+*Internal or external items that the project relies upon.*
 
-Medium Priority Items:
-- Risks: [#]
-- Issues: [#]
-- Dependencies: [#]
+| ID | Date Identified | Dependency Description | Type (Ext/Int) | Owner / Contact | Due Date | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **D-01** | [YYYY-MM-DD] | Availability of NetSuite's official documentation via the SuiteAnswers portal. | External | Oracle NetSuite | N/A | Watch |
+| **D-02** | [YYYY-MM-DD] | Feedback from mentor on portfolio project architecture. | External | [Mentor Name] | [Date] | Open |
+| **D-03** | [YYYY-MM-DD] | Completion of JavaScript ES6+ refresher course before starting SuiteScript development. | Internal | [Your Name] | [Date] | Open |
 
-Low Priority Items:
-- Risks: [#]
-- Issues: [#]
-- Dependencies: [#]
-```
+---
 
-## Action Items from RAID
-
-### High Priority Actions
-| Action | Owner | Due Date | Related RAID Item | Status |
-|--------|-------|----------|-------------------|--------|
-| [Action 1] | [Name] | [Date] | [R001/A001/I001/D001] | [Status] |
-| [Action 2] | [Name] | [Date] | [R001/A001/I001/D001] | [Status] |
-
-## RAID Review Process
-
-### Review Schedule
-- **Daily Standup**: Review high-priority issues and blockers
-- **Weekly RAID Review**: Comprehensive review of all items
-- **Monthly RAID Report**: Summary report to stakeholders
-
-### Review Participants
-- **Project Manager**: Overall RAID management
-- **Team Leads**: Category-specific reviews
-- **Stakeholders**: Impact assessment and decision-making
-
-## Escalation Matrix
-
-| Item Type | Priority | Escalation Level | Timeline |
-|-----------|----------|------------------|----------|
-| Risk | High | Project Sponsor | 24 hours |
-| Issue | High | Project Manager | Immediate |
-| Dependency | Critical | Steering Committee | 48 hours |
-| Assumption | Invalid | Project Sponsor | 24 hours |
-
-## Historical RAID Data
-
-### Closed Items (Last 30 Days)
-| Type | ID | Description | Closure Date | Resolution |
-|------|----|-----------  |--------------|------------|
-| Risk | R005 | [Description] | [Date] | [Resolution] |
-| Issue | I010 | [Description] | [Date] | [Resolution] |
-
-### RAID Trends
-| Week | New Risks | New Issues | Closed Risks | Closed Issues |
-|------|-----------|------------|--------------|---------------|
-| Week 1 | [#] | [#] | [#] | [#] |
-| Week 2 | [#] | [#] | [#] | [#] |
-| Week 3 | [#] | [#] | [#] | [#] |
-
-## Communication Plan
-
-### RAID Reporting
-- **RAID Dashboard**: Updated daily
-- **Weekly RAID Summary**: Distributed to project team
-- **Monthly RAID Report**: Sent to stakeholders and sponsors
-
-### RAID Meetings
-- **RAID Review Meeting**: Weekly, 1 hour
-- **RAID Deep Dive**: Monthly, 2 hours for complex items
-- **RAID Escalation Meeting**: As needed for high-priority items
-
-## Templates for New RAID Items
-
-### New Risk Template
-- **ID**: [Auto-generated]
-- **Description**: [Clear description of the risk]
-- **Category**: [Technical/Business/External/Organizational]
-- **Probability**: [High/Medium/Low]
-- **Impact**: [High/Medium/Low]
-- **Owner**: [Responsible person]
-- **Mitigation**: [Planned actions]
-
-### New Issue Template
-- **ID**: [Auto-generated]
-- **Description**: [Clear description of the issue]
-- **Category**: [Technical/Resource/Process/External]
-- **Priority**: [High/Medium/Low]
-- **Owner**: [Responsible person]
-- **Target Resolution Date**: [Date]
+## 7. Revision History
+| Version | Date | Author | Changes |
+| :--- | :--- | :--- | :--- |
+| 1.0 | [YYYY-MM-DD] | [Your Name] | Initial draft and population of initial RAID items. |

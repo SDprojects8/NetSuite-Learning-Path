@@ -1,45 +1,53 @@
-# Inbox
+# General Inbox
 
 ## Purpose
-Central collection point for all unprocessed items, requests, and information that needs to be sorted and routed to appropriate project areas.
+This document serves as the primary catch-all for any incoming thoughts, notes, links, tasks, and unprocessed information related to the NetSuite Learning Path project. The goal is to capture everything in one place quickly, so it can be processed and organized later.
 
-## Processing Guidelines
-1. **Daily Review**: Process inbox items daily
-2. **2-Minute Rule**: If it takes less than 2 minutes, do it now
-3. **Categorize**: Assign to appropriate project phase
-4. **Archive**: Move processed items to relevant folders
+**This inbox should be reviewed and cleared regularly (e.g., daily or weekly).**
 
-## Unprocessed Items
+---
 
-| Date Added | Item | Type | Source | Priority | Processing Notes | Status |
-|------------|------|------|--------|----------|-----------------|--------|
-| | | | | | | |
+## Unsorted Notes & Thoughts
 
-## Item Types
-- **Email**: Important project emails
-- **Request**: Feature or change requests  
-- **Issue**: Problems or concerns
-- **Idea**: New concepts or suggestions
-- **Document**: Shared documents or files
-- **Reference**: Links or resources to review
+*   **[YYYY-MM-DD]:** *<Dump raw thought or note here...>*
+*   **[YYYY-MM-DD]:**
+*   **[YYYY-MM-DD]:**
 
-## Processing Status
-- **New**: Just added to inbox
-- **In Review**: Being evaluated
-- **Routed**: Moved to appropriate folder
-- **Completed**: Simple items completed directly
-- **Waiting**: Waiting for more information
+---
 
-## Quick Actions
-- [ ] Review daily standup notes
-- [ ] Process support tickets
-- [ ] File meeting outcomes
-- [ ] Update project stakeholders
-- [ ] Review external communications
+## Links & Resources to Review
 
-## Archive
-*Processed items log for reference*
+*   **[Link Title]:** [URL]
+    *   **Notes:** *<Brief description of why this link is relevant...>*
+*   **[Link Title]:** [URL]
+    *   **Notes:**
+*   **[Link Title]:** [URL]
+    *   **Notes:**
 
-| Date Processed | Item | Routed To | Notes |
-|---------------|------|-----------|-------|
-| | | | |
+---
+
+## Ad-Hoc Action Items
+
+*These are tasks that need to be captured quickly before being formally added to the `backlog.md` or `WBS.md`.*
+
+- [ ] **Task:** *<Describe the action item...>*
+    - **Priority:** [High/Medium/Low]
+    - **Next Step:** *<e.g., "Add to backlog", "Discuss in next meeting">*
+- [ ] **Task:**
+    - **Priority:**
+    - **Next Step:**
+- [ ] **Task:**
+    - **Priority:**
+    - **Next Step:**
+
+---
+
+## How to Process This Inbox
+1.  **Review Daily/Weekly:** Go through each item in the inbox.
+2.  **Organize:**
+    *   Move structured ideas to `ideas.md`.
+    *   Move formal tasks to `backlog.md`.
+    *   Move meeting-related notes to `meeting_notes.md`.
+    *   Move detailed research findings to the `02_research` folder.
+    *   If an item is actionable for the current plan, add it to the `04_planning/WBS.md`.
+3.  **Delete/Archive:** Once an item is processed and moved, remove it from the inbox to keep it clean.

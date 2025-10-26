@@ -1,77 +1,88 @@
 # Research Notes
 
-## Research Objectives
-[Define what you are researching and why]
-
-## Research Questions
-- [Question 1]
-- [Question 2]
-- [Question 3]
-
-## Research Areas
-
-### Area 1: [Topic]
-**Research Date**: [Date]  
-**Researcher**: [Name]  
-
-**Key Findings**:
-- [Finding 1]
-- [Finding 2]
-- [Finding 3]
-
-**Sources**:
-- [Source 1]
-- [Source 2]
-
-**Notes**:
-[Detailed notes and observations]
+## Purpose
+This document is a central repository for capturing notes, findings, links, and summaries from research activities conducted for the NetSuite Learning Path project. The goal is to organize knowledge, track sources, and synthesize information into actionable insights.
 
 ---
 
-### Area 2: [Topic]
-**Research Date**: [Date]  
-**Researcher**: [Name]  
+## 1. Active Research Questions
+*This section lists the current questions the project is trying to answer through research.*
 
-**Key Findings**:
-- [Finding 1]
-- [Finding 2]
+*   What are the most common and effective design patterns for SuiteScript 2.x?
+*   What are the best practices for setting up a CI/CD pipeline for SDF with GitHub Actions?
+*   What are the critical performance limitations and governance limits to be aware of when using SuiteTalk APIs?
+*   How does NetSuite's SuiteQL differ from standard SQL, particularly in terms of joins and available functions?
+*   What are the best free and paid resources (courses, blogs, communities) for advanced SuiteScript topics?
 
-**Sources**:
-- [Source 1]
-- [Source 2]
+---
 
-**Notes**:
-[Detailed notes and observations]
+## 2. Research Log
+*A chronological log of research activities.*
 
-## Research Summary
+### [YYYY-MM-DD] - Topic: [Research Topic]
+*   **Source Type:** [Article / Video / Documentation / Book / Forum Post]
+*   **Title/Link:** [Title of the resource and URL if applicable]
+*   **Author/Source:** [Name of author or website]
+*   **Key Findings:**
+    *   *Finding 1: Detailed point discovered...*
+    *   *Finding 2: Another important piece of information...*
+    *   *Code Snippet/Example:*
+        ```javascript
+        // Relevant code example if applicable
+        ```
+*   **Relevance to Project:**
+    *   *How this information applies directly to a project phase, deliverable, or portfolio piece.*
+*   **Actionable Items:**
+    *   - [ ] *Task generated from this research (e.g., "Implement XYZ pattern in the data migration script").*
+    *   - [ ] *Follow-up question to investigate.*
 
-### Key Insights
-- [Insight 1]
-- [Insight 2]
-- [Insight 3]
+---
+### [YYYY-MM-DD] - Topic: [Research Topic]
+*   **Source Type:**
+*   **Title/Link:**
+*   **Author/Source:**
+*   **Key Findings:**
+    *
+*   **Relevance to Project:**
+    *
+*   **Actionable Items:**
+    *
 
-### Implications for Project
-- [Implication 1]
-- [Implication 2]
+---
 
-### Recommendations
-- [Recommendation 1]
-- [Recommendation 2]
+## 3. Consolidated Summaries
+*Synthesized knowledge on key topics after multiple research entries.*
 
-### Further Research Needed
-- [ ] [Research item 1]
-- [ ] [Research item 2]
-- [ ] [Research item 3]
+### Topic Summary: SuiteScript Design Patterns
+*   **Summary:** Based on research from [Source A] and [Source B], the recommended pattern for [specific scenario] is the [Pattern Name]. This involves... It is particularly useful for avoiding [problem] and improves [benefit, e.g., performance, maintainability].
+*   **Key Principles:**
+    1.  Principle 1...
+    2.  Principle 2...
+*   **When to Use:**
+    *   Use Case 1...
+    *   Use Case 2...
+*   **When to Avoid:**
+    *   Scenario 1...
 
-## Research Log
+### Topic Summary: [Another Research Topic]
+*   **Summary:** ...
+*   **Key Principles:** ...
 
-| Date | Topic | Researcher | Status | Key Outcomes |
-|------|-------|------------|--------|--------------|
-| [Date] | [Topic] | [Name] | [Complete/In Progress] | [Outcomes] |
+---
 
-## Research Archive
-*Links to detailed research documents, interviews, surveys, etc.*
+## 4. Resource Repository
+*A curated list of high-value resources discovered during research.*
 
-- [Document 1]: [Link/Location]
-- [Document 2]: [Link/Location]
-- [Interview 1]: [Link/Location]
+### Blogs & Websites
+*   [Blog Name](URL) - Specializes in [Topic].
+*   [NetSuite Professionals](URL) - Community forum.
+
+### Official Documentation
+*   [SuiteScript 2.x API Guide](URL)
+*   [SDF Documentation](URL)
+
+### Tools & Libraries
+*   [Tool Name](URL) - Used for [Purpose].
+
+### Books
+*   [Book Title] by [Author]

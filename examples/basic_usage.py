@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Basic usage example for Project.Name."""
+"""Basic usage example for NetSuite-Learning-Path."""
 
 import logging
 from lcm_automation import LCMManager
@@ -11,8 +11,8 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    """Demonstrate basic Project.Name usage."""
-    print("🚀 Project.Name - Basic Usage Example")
+    """Demonstrate basic NetSuite-Learning-Path usage."""
+    print("🚀 NetSuite-Learning-Path - Basic Usage Example")
     print("=" * 50)
 
     # Create LCM Manager
